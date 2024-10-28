@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compost</title>
+    <!-- ------Tailwind------------ -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- ------css link----- -->
+    <link rel="stylesheet" href="compost.css">
+
+</head>
+
+<body>
+    <!-- ----profile------- -->
+    <div class="profile">
+    <div class="p-4 md:w-1/3 flex flex-col text-center items-center">
+        <div
+            class="w-20 h-20 inline-flex items-center justify-center rounded-full bg-green-100 text-green-500 mb-3 flex-shrink-0">
+            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                class="w-10 h-10" viewBox="0 0 24 24">
+                <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+        </div>
+        <div class="flex-grow">
+            <h2 class="text-gray-900 text-lg title-font font-medium mb-3 text-align-center">Sarah</h2>
+          </div>
+    </div>
+</div>
+    <!-- -----boxes---------- -->
+    <section class="text-gray-600 body-font">
+        <div class="container px-5 py-6 mx-auto">
+          <div class="flex flex-wrap -m-3 text-center">
+            <!-- <div class="p-4 sm:w-1/4 w-1/2">
+              <h2 class="title-font font-medium sm:text-4xl text-3xl text-gray-900">2.7K</h2>
+              <p class="leading-relaxed">Users</p>
+            </div> -->
+            <div class="p-4 sm:w-1/3 w-1/2">
+              <h2 class="title-font font-medium sm:text-4xl text-3xl text-gray-900">3</h2>
+              <p class="leading-relaxed">Number of days of composting</p>
+            </div>
+            <div class="p-4 sm:w-1/3 w-1/2">
+              <h2 class="title-font font-medium sm:text-4xl text-3xl text-gray-900">50</h2>
+              <p class="leading-relaxed">Token Earned</p>
+            </div>
+            <div class="p-4 sm:w-1/3 w-1/2">
+              <h2 class="title-font font-medium sm:text-4xl text-3xl text-gray-900">1.5</h2>
+              <p class="leading-relaxed">Waste Composted(kg)</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- ----------progress bar---------- -->
+      <div class="flex justify-center mt-10">
+        <div class="w-3/4 bg-gray-200 h-6 rounded-full">
+          <div class="bg-green-500 h-full rounded-full text-white" style="width: 50%;">50%</div>
+        </div>
+      </div>
+      <!-- ----------button1------------- -->
+      <a href="http://">
+        <button
+          class="flex mx-auto mt-10 text-white bg-green-500 border-0 py-2 px-5 focus:outline-none hover:bg-green-700 rounded">Call for Compost</button>
+        </a>
+        <!-- <a href="http://127.0.0.1:5501/receiver.html"> -->
+          <!--------------------- button2------------------------->
+          <!-- <button
+            class="flex mx-auto mt-10 text-white bg-green-500 border-0 py-2 px-5 focus:outline-none hover:bg-green-700 rounded">Redeem Token</button>
+          </a> -->
+          <button class="flex mx-auto mt-10 text-white bg-green-500 border-0 py-2 px-5 focus:outline-none hover:bg-green-700 rounded" onclick ="Redeem()">Redeem Token</button> <br> 
+          <p id="accountArea"></p> 
+      
+          <script>
+            //connect to metamask
+               const Redeem = async() => { 
+                 if(window.ethereum !=="undefined") {
+                   const accounts = await ethereum.request({method:"eth_requestAccounts"});
+                   account = accounts[0];
+                   document.getElementById("accountArea").innerHTML = account;
+                 } 
+               }
+           </script>
+</body>
+
+</html>

@@ -1,0 +1,25 @@
+.profile{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+body {
+    text-align: center;
+}
+button {
+    background-color: rgb(34, 197, 94);
+    margin: auto;
+    margin-top: 20px;
+    /* text-decoration: white; */
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    outline: none; 
+    color: white;
+    border-radius: 3px;
+    
+}
+button:hover { 
+    background-color: rgb(21, 128, 61);
+} 

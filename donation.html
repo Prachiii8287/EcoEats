@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <section class="text-gray-600 body-font relative">
+        <div class="container px-5 py-8 mx-auto">
+          <div class="flex flex-col text-center w-full mb-12">
+            <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">Listing Type: Donation</h1>
+            <p class="lg:w-2/3 mx-auto leading-relaxed text-base text-green-600">Give what you can, every little bit helps.</p>
+          </div>
+          <div class="lg:w-1/2 md:w-2/3 mx-auto">
+            <div class="flex flex-wrap -m-2">
+              <div class="p-2 w-full">
+                <div class="relative">
+                  <label for="name" class="leading-7 text-sm text-black">Add Food Title</label>
+                  <input type="text" id="name" name="name" class="w-full bg-gray-100 bg-opacity-50 rounded border border-black focus:border-green-500 focus:bg-white focus:ring-2 focus:ring-green-200 text-base outline-none text-black py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                </div>
+              </div>
+              <!-- <div class="p-2 w-full">
+                <div class="relative">
+                  <label for="email" class="leading-7 text-sm text-gray-600">Email</label>
+                  <input type="email" id="email" name="email" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-green-500 focus:bg-white focus:ring-2 focus:ring-green-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                </div>
+              </div> -->
+
+              <!-- --------------Discription--------------- -->
+              <div class="p-2 w-full">
+                <div class="relative">
+                  <label for="message" class="leading-7 text-sm text-black">Description</label>
+                  <textarea id="message" name="message" class="w-full bg-gray-100 bg-opacity-50 rounded border border-black focus:border-green-500 focus:bg-white focus:ring-2 focus:ring-green-200 h-32 text-base outline-none text-black py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"></textarea>
+                </div>
+              </div>
+
+              <!-- -----------------selection dropdown--------------- -->
+              <label for="Cooked Food-Veg & NonVeg" class="mb-2 block text-sm font-medium text-gray-900">Select an option</label>
+                <select id="countries" class="block w-full rounded-lg border border-gray-300 border-gray-600 bg-gray-50 bg-gray-50 p-2.5 text-sm text-black text-gray-900 placeholder-gray-400 focus:border-blue-500 focus:border-blue-500 focus:ring-blue-500 focus:ring-blue-500">
+                  <option selected>Choose food type</option>
+                  <option value="Veg-NonVeg">Cooked Food-Veg and NonVeg</option>
+                  <option value="Veg">Cooked Food Veg</option>
+                  <option value="NonVeg">Cooked Food NonVeg</option>
+                  <!-- <option value="FR">France</option>
+                  <option value="DE">Germany</option> -->
+                </select>
+
+                <!-- ------------image drop--------------- -->
+                <div class="imghead mb-2 block text-sm font-medium text-gray-900 mt-5">Insert your food images</div>
+                <div class="w-[800px] relative border-2 border-black border-dashed rounded-lg p-6 cursor-pointer" id="dropzone">
+                    <input type="file" class="absolute inset-0 w-full h-full opacity-0 z-50" />
+                    <div class="text-center">
+                        <img class="mx-auto h-12 w-12" src="https://www.svgrepo.com/show/357902/image-upload.svg" alt="">
+                
+                        <h3 class="mt-2 text-sm font-medium text-gray-900">
+                            <label for="file-upload" class="relative cursor-pointer">
+                                <span>Drag and drop</span>
+                                <span>to upload</span>
+                                <input id="file-upload" name="file-upload" type="file" class="sr-only">
+                            </label>
+                        </h3>
+                        <p class="mt-1 text-xs text-gray-500 cursor-pointer">
+                            PNG and JPG up to 10MB
+                        </p>
+                    </div>
+                
+                    <img src="" class="mt-4 mx-auto max-h-40 hidden cursor-pointer" id="preview">
+                </div>
+                
+                <script>
+                    var dropzone = document.getElementById('dropzone');
+                
+                    dropzone.addEventListener('dragover', e => {
+                        e.preventDefault();
+                        dropzone.classList.add('border-indigo-600');
+                    });
+                
+                    dropzone.addEventListener('dragleave', e => {
+                        e.preventDefault();
+                        dropzone.classList.remove('border-indigo-600');
+                    });
+                
+                    dropzone.addEventListener('drop', e => {
+                        e.preventDefault();
+                        dropzone.classList.remove('border-indigo-600');
+                        var file = e.dataTransfer.files[0];
+                        displayPreview(file);
+                    });
+                
+                    var input = document.getElementById('file-upload');
+                
+                    input.addEventListener('change', e => {
+                        var file = e.target.files[0];
+                        displayPreview(file);
+                    });
+                
+                    function displayPreview(file) {
+                        var reader = new FileReader();
+                        reader.readAsDataURL(file);
+                        reader.onload = () => {
+                            var preview = document.getElementById('preview');
+                            preview.src = reader.result;
+                            preview.classList.remove('hidden');
+                        };
+                    }
+                </script>
+                <!-- -----------checkbox---------- -->
+                <div class="inline-flex items-center">
+                  <label class="relative flex cursor-pointer items-center rounded-full p-3" htmlFor="check">
+                    <input type="checkbox" class="before:content[''] border-gray-700 before:bg-blue-gray-500 peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border transition-all before:absolute before:left-2/4 before:top-2/4 before:block before:h-12 before:w-12 before:-translate-x-2/4 before:-translate-y-2/4 before:rounded-full before:opacity-0 before:transition-opacity checked:border-white checked:bg-green-600 checked:before:bg-gray-900 hover:before:opacity-10" id="check" />
+                    <span class="pointer-events-none absolute left-2/4 top-2/4 -translate-x-2/4 -translate-y-2/4 text-white opacity-0 transition-opacity peer-checked:opacity-100">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" viewBox="0 0 20 20" fill="currentColor" stroke="currentColor" stroke-width="1">
+                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                      </svg>
+                    </span>
+                  </label>
+                  <label class="mt-px cursor-pointer select-none text-black" htmlFor="check"> I assure that the food quality and hygiene has maintained  </label>
+                </div>
+              
+                <!-- ----------Button----------------- -->
+                
+              <div class="p-2 w-full">
+                <a href="http://127.0.0.1:5501/complete1.html">
+                <button class="flex mx-auto text-white bg-green-500 border-0 py-2 px-8 focus:outline-none hover:bg-green-600 rounded text-lg">Done</button>
+              </a>
+              </div>
+              <!-- <div class="p-2 w-full pt-8 mt-8 border-t border-gray-200 text-center">
+                <a class="text-green-500">example@email.com</a>
+                <p class="leading-normal my-5">49 Smith St.
+                  <br>Saint Cloud, MN 56301
+                </p> -->
+                <!-- <span class="inline-flex">
+                  <a class="text-gray-500">
+                    <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                      <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
+                    </svg>
+                  </a>
+                  <a class="ml-4 text-gray-500">
+                    <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                      <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
+                    </svg>
+                  </a>
+                  <a class="ml-4 text-gray-500">
+                    <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                      <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+                      <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
+                    </svg>
+                  </a>
+                  <a class="ml-4 text-gray-500">
+                    <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                      <path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"></path>
+                    </svg>
+                  </a> 
+                </span> -->
+              <!-- </div> -->
+
+              
+              
+            </div>
+          </div>
+        </div>
+      </section>
+</body>
+</html>
